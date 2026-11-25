@@ -1,0 +1,25 @@
+{
+  "name": "practicesdemo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test",
+    "test:chrome": "playwright test --project=chromium",
+    "test:firefox": "playwright test --project=firefox",
+    "report": "allure serve allure-results"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "^1.65.1",
+    "@types/node": "^26.6.7",
+    "allure-commandline": "^2.46.2",
+    "allure-playwright": "^3.15.0"
+  },
+  "dependencies": {
+    "dotenv": "^18.0.10"
+  }
+}

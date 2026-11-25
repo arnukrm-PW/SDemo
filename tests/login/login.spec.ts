@@ -3,7 +3,7 @@ import {LoginPage}from '../../pages/LoginPage'
 
 
 
-test('TC_01 - verify login to inventory page',{tag:'@sanity'},async({loggedIntoPage})=>{
+test('TC_01 - verify login to inventory page ',{tag:'@sanity'},async({loggedIntoPage})=>{
 
     await loggedIntoPage.verifyInventoryPage()
     // await expect(loggedIntoPage['page']).toHaveURL(/inventory/)

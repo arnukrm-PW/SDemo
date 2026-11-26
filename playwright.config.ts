@@ -9,6 +9,7 @@ import { defineConfig, devices } from '@playwright/test';
 // dotenv.config({ path: path.resolve(__dirname, '.env') });
 import dotenv from 'dotenv'
 dotenv.config({path:'.env',override:true})
+const baseURL= process.env.BASE_URL
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
@@ -31,7 +32,7 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'retain-on-failure',
-    baseURL:process.env.BASE_URL
+    baseURL : baseURL
 
   },
 

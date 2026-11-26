@@ -1,0 +1,15 @@
+{
+  data: {
+    tokenType: 'Bearer',
+    accessToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJxYS1hdXRvbWF0aW9uLWxhYnMiLCJpYXQiOjE3OTU2NjY2OTAsImV4cCI6MTc5NTY3MDI5MCwic3ViIjoxLCJlbWFpbCI6InFhQGRlbW8uaW8iLCJyb2xlIjoiYWRtaW4ifQ.e4nSU-YAkU262mr82M54dDxLY5Xv0KBjoxBA0gfi6H0',
+    refreshToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJxYS1hdXRvbWF0aW9uLWxhYnMiLCJpYXQiOjE3OTU2NjY2OTAsImV4cCI6MTc5NTc1MzA5MCwic3ViIjoxLCJ0eXBlIjoicmVmcmVzaCJ9.43DvQjr2x4t6Wd4BCz8cmG2XRb47BEcaA9a4JovljPk',
+    expiresIn: 3600,
+    user: { id: 1, email: 'qa@demo.io', name: 'QA Demo User', role: 'admin' }
+  },
+  meta: {
+    requestId: 'req_3f4210c6538f14e8',
+    responseTimeMs: 0.3,
+    timestamp: '2026-11-26T04:18:10+00:00',
+    apiVersion: '1.0.0'
+  }
+}

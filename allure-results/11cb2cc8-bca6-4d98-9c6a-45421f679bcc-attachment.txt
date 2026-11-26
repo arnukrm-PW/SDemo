@@ -1,0 +1,128 @@
+{
+  data: [
+    {
+      id: 1,
+      firstName: 'Priya',
+      lastName: 'Rossi',
+      username: 'priya.rossi1',
+      email: 'priya.rossi@qalabs.dev',
+      role: 'engineer',
+      status: 'invited',
+      avatar: 'https://api.qaautomationlabs.com/v1/avatars/u1.svg',
+      createdAt: '2025-10-27T14:38:31+00:00'
+    },
+    {
+      id: 2,
+      firstName: 'Ethan',
+      lastName: 'Andersson',
+      username: 'ethan.andersson2',
+      email: 'ethan.andersson@qalabs.dev',
+      role: 'viewer',
+      status: 'suspended',
+      avatar: 'https://api.qaautomationlabs.com/v1/avatars/u2.svg',
+      createdAt: '2024-09-22T05:39:30+00:00'
+    },
+    {
+      id: 3,
+      firstName: 'Diego',
+      lastName: 'Haddad',
+      username: 'diego.haddad3',
+      email: 'diego.haddad@qalabs.dev',
+      role: 'analyst',
+      status: 'active',
+      avatar: 'https://api.qaautomationlabs.com/v1/avatars/u3.svg',
+      createdAt: '2024-01-30T19:25:14+00:00'
+    },
+    {
+      id: 4,
+      firstName: 'Omar',
+      lastName: 'Chen',
+      username: 'omar.chen4',
+      email: 'omar.chen@qalabs.dev',
+      role: 'analyst',
+      status: 'invited',
+      avatar: 'https://api.qaautomationlabs.com/v1/avatars/u4.svg',
+      createdAt: '2026-07-07T18:32:02+00:00'
+    },
+    {
+      id: 5,
+      firstName: 'Sofia',
+      lastName: 'Reyes',
+      username: 'sofia.reyes5',
+      email: 'sofia.reyes@qalabs.dev',
+      role: 'manager',
+      status: 'active',
+      avatar: 'https://api.qaautomationlabs.com/v1/avatars/u5.svg',
+      createdAt: '2026-09-12T10:07:08+00:00'
+    },
+    {
+      id: 6,
+      firstName: 'Lucas',
+      lastName: 'Kim',
+      username: 'lucas.kim6',
+      email: 'lucas.kim@qalabs.dev',
+      role: 'engineer',
+      status: 'suspended',
+      avatar: 'https://api.qaautomationlabs.com/v1/avatars/u6.svg',
+      createdAt: '2024-02-25T12:28:55+00:00'
+    },
+    {
+      id: 7,
+      firstName: 'Emma',
+      lastName: 'Chen',
+      username: 'emma.chen7',
+      email: 'emma.chen@qalabs.dev',
+      role: 'engineer',
+      status: 'suspended',
+      avatar: 'https://api.qaautomationlabs.com/v1/avatars/u7.svg',
+      createdAt: '2026-12-01T06:18:17+00:00'
+    },
+    {
+      id: 8,
+      firstName: 'Diego',
+      lastName: 'Nguyen',
+      username: 'diego.nguyen8',
+      email: 'diego.nguyen@qalabs.dev',
+      role: 'admin',
+      status: 'active',
+      avatar: 'https://api.qaautomationlabs.com/v1/avatars/u8.svg',
+      createdAt: '2024-01-06T23:34:38+00:00'
+    },
+    {
+      id: 9,
+      firstName: 'Lucas',
+      lastName: 'Haddad',
+      username: 'lucas.haddad9',
+      email: 'lucas.haddad@qalabs.dev',
+      role: 'analyst',
+      status: 'suspended',
+      avatar: 'https://api.qaautomationlabs.com/v1/avatars/u9.svg',
+      createdAt: '2024-09-11T14:31:58+00:00'
+    },
+    {
+      id: 10,
+      firstName: 'Noah',
+      lastName: 'Patel',
+      username: 'noah.patel10',
+      email: 'noah.patel@qalabs.dev',
+      role: 'admin',
+      status: 'invited',
+      avatar: 'https://api.qaautomationlabs.com/v1/avatars/u10.svg',
+      createdAt: '2025-04-18T09:05:50+00:00'
+    }
+  ],
+  pagination: {
+    page: 1,
+    pageSize: 10,
+    totalItems: 50,
+    totalPages: 5,
+    hasNext: true,
+    hasPrev: false
+  },
+  meta: {
+    requestId: 'req_899c890ecee0db39',
+    responseTimeMs: 0.23,
+    timestamp: '2026-11-26T04:29:18+00:00',
+    apiVersion: '1.0.0'
+  }
+}

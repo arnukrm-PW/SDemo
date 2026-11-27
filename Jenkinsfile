@@ -1,15 +1,14 @@
 
 pipeline {
     agent any
-    triggers {
-    parameterizedCron('''
-        # Smoke execution - every weekday at 9 AM
-        0 9 * * 1-5 %TEST_SUITE=smoke;BROWSER=chromium
 
-        # Regression execution - every Friday at 10 PM
-        0 22 * * 5 %TEST_SUITE=regression;BROWSER=all
-    ''')
-            }
+    triggers {
+        parameterizedCron('''
+            0 9 * * 1-5 %TEST_SUITE=smoke;BROWSER=chromium
+            0 22 * * 5 %TEST_SUITE=regression;BROWSER=all
+        ''')
+    }
+
     parameters {
         choice(
             name: 'TEST_SUITE',
@@ -54,16 +53,18 @@ pipeline {
                 bat 'npx playwright install'
             }
         }
+
         stage('Clean Previous Reports') {
-             steps {
-            bat '''
-            if exist allure-results rmdir /s /q allure-results
-            if exist allure-report rmdir /s /q allure-report
-            if exist playwright-report rmdir /s /q playwright-report
-            if exist test-results rmdir /s /q test-results
-                 '''
+            steps {
+                bat '''
+                    if exist allure-results rmdir /s /q allure-results
+                    if exist allure-report rmdir /s /q allure-report
+                    if exist playwright-report rmdir /s /q playwright-report
+                    if exist test-results rmdir /s /q test-results
+                '''
             }
         }
+
         stage('Run Playwright Tests') {
             steps {
                 script {
@@ -85,18 +86,24 @@ pipeline {
                 }
             }
         }
-
-        stage('Generate Allure Report') {
-            steps {
-                bat 'npx allure generate allure-results --clean -o allure-report'
-            }
-        }
     }
 
     post {
         always {
-            archiveArtifacts artifacts: 'playwright-report/**, test-results/**, allure-results/**, allure-report/**',
+            script {
+                if (fileExists('allure-results')) {
+                    catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                        bat 'npx allure generate allure-results --clean -o allure-report'
+                    }
+                } else {
+                    echo 'No Allure results directory found.'
+                }
+            }
+
+            archiveArtifacts(
+                artifacts: 'playwright-report/**, test-results/**, allure-results/**, allure-report/**',
                 allowEmptyArchive: true
+            )
 
             allure([
                 includeProperties: false,

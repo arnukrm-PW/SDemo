@@ -9,6 +9,7 @@ import { defineConfig, devices } from '@playwright/test';
 // dotenv.config({ path: path.resolve(__dirname, '.env') });
 import dotenv from 'dotenv'
 dotenv.config({path:'.env',override:true})
+const baseURL= process.env.BASE_URL
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
@@ -23,7 +24,7 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: [['html'],['allure-playwright',{resultDir:'allure-reports',detail:true, suitTitle:true}]],
+  reporter: [['html'],['allure-playwright',{resultsDir:'allure-results',detail:true, suiteTitle:true}]],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
@@ -31,7 +32,7 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'retain-on-failure',
-    baseURL:process.env.BASE_URL
+    baseURL : baseURL
 
   },
 

@@ -18,7 +18,7 @@ export class CheckoutStepTwoPage
             await expect(this.titleCheckoutStepTwo).toBeVisible()
     }
     async getPaymentInfoValue()
-    {
+    {   await this.paymentInfoValue.waitFor({state:'visible',timeout:6000})
            const paymentDetails =  await this.paymentInfoValue.innerText()
         return paymentDetails.replace("SauceCard #" , "")
     }

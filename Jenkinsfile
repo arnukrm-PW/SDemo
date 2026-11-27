@@ -87,10 +87,11 @@ pipeline {
             }
         }
     }
-
     post {
-        always {
-            script {
+    always {
+        // Keep your existing Allure generation and archive code
+    }
+                script {
                 if (fileExists('allure-results')) {
                     catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                         bat 'npx allure generate allure-results --clean -o allure-report'
@@ -110,13 +111,69 @@ pipeline {
                 results: [[path: 'allure-results']]
             ])
         }
+    success {
+        emailext(
+            to: 'arnukrm0@gmail.com',
+            subject: "SUCCESS: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+            body: """
+            Hello,
 
-        success {
-            echo 'Playwright execution successful!'
-        }
+            Playwright execution completed successfully.
 
-        failure {
-            echo 'Playwright execution failed. Check reports and logs.'
-        }
+            Job: ${env.JOB_NAME}
+            Build: #${env.BUILD_NUMBER}
+            Suite: ${params.TEST_SUITE}
+            Browser: ${params.BROWSER}
+            Build URL: ${env.BUILD_URL}
+
+            Please check Jenkins for the Allure report.
+
+            Regards,
+            Jenkins CI
+            """
+        )
+    }
+
+    failure {
+        emailext(
+            to: 'arnukrm0@gmail.com',
+            subject: "FAILURE: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+            body: """
+            Hello,
+
+            Playwright execution failed.
+
+            Job: ${env.JOB_NAME}
+            Build: #${env.BUILD_NUMBER}
+            Suite: ${params.TEST_SUITE}
+            Browser: ${params.BROWSER}
+            Build URL: ${env.BUILD_URL}
+
+            Please investigate the failure and review the test logs.
+
+            Regards,
+            Jenkins CI
+            """
+        )
+    }
+
+    unstable {
+        emailext(
+            to: 'arnukrm0@gmail.com',
+            subject: "UNSTABLE: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+            body: """
+            Playwright execution completed with an unstable result.
+
+            Job: ${env.JOB_NAME}
+            Build: #${env.BUILD_NUMBER}
+            Build URL: ${env.BUILD_URL}
+
+            Please review the test results.
+
+            Regards,
+            Jenkins CI
+            """
+        )
     }
 }
+   
